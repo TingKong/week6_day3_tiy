@@ -10,49 +10,68 @@ namespace Fibonacci
     {
         static void Main(string[] args)
         {
-            //FIBONACCI FORMULA
+           // FIBONACCI FORMULA
             //Console.WriteLine("How many times would you like the Fibonacci to run?");
-            //string answer = Console.ReadLine();
-            //int numAnswer = Convert.ToInt32(answer);
+            string answer = Console.ReadLine();
+            int numAnswer = Convert.ToInt32(answer);
 
-
-
-            //Fibby(0, 1, 1, numAnswer);
-            //Console.ReadLine();
+            Console.Clear();
+            Fibby(0, 1, 1, numAnswer);
+            Console.WriteLine();
 
             //FACTORIALS
-            Console.WriteLine("What number would you want to fractor?");
+            //Console.WriteLine("What number would you want to fractor?");
             string useranswer = Console.ReadLine();
             int numUserAns = Convert.ToInt32(useranswer);
 
 
-            int final = Fact(numUserAns);
 
             for (int i = numUserAns; i > 0; i--)
             {
-                Console.Write(i + " x ");
+
+
                 Console.WriteLine();
-                for (int b = numUserAns; b > 0; b--)
+                for (int b = i; b > 0; b--)
                 {
-                    Console.Write(b + " x ");
+                    if (b == 1)
+                    {
+                        Console.Write(b);
+                    }
+                    else
+                    {
+                        Console.Write(b + " x ");
+
+
+                    }
 
                 }
+
+
+                int final = Fact(numUserAns);
+
+
+                Console.Write(" = " + Fact(i));
+
+
+
             }
+
+            //FINDING FILES
 
             Console.ReadLine();
         }
 
-        //static void Fibby(int a, int b, int count, int number)
-        //{
+        static void Fibby(int a, int b, int count, int number)
+        {
 
-        //    Console.WriteLine(a);
-        //    if(count < number)
-        //    {
-        //        Fibby(b, a + b, count+1, number);
-        //    }
+            Console.WriteLine(a);
+            if (count < number)
+            {
+                Fibby(b, a + b, count + 1, number);
+            }
 
 
-        //}
+        }
 
         static int Fact(int a)
         {
@@ -63,6 +82,8 @@ namespace Fibonacci
                 return a * Fact(a - 1);
 
             }
+
+ 
 
             return 1;
 
