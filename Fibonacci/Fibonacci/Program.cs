@@ -10,20 +10,20 @@ namespace Fibonacci
     {
         static void Main(string[] args)
         {
-           // FIBONACCI FORMULA
-            //Console.WriteLine("How many times would you like the Fibonacci to run?");
+            // FIBONACCI FORMULA
+            Console.WriteLine("How many times would you like the Fibonacci to run?");
             string answer = Console.ReadLine();
-            int numAnswer = Convert.ToInt32(answer);
 
+            int numAnswer = Convert.ToInt32(answer);
             Console.Clear();
             Fibby(0, 1, 1, numAnswer);
             Console.WriteLine();
 
-            //FACTORIALS
-            //Console.WriteLine("What number would you want to fractor?");
+            ////FACTORIALS
+            //Console.WriteLine("What number would you want to factor?");
             string useranswer = Console.ReadLine();
-            int numUserAns = Convert.ToInt32(useranswer);
 
+            int numUserAns = Convert.ToInt32(useranswer);
 
 
             for (int i = numUserAns; i > 0; i--)
@@ -41,26 +41,47 @@ namespace Fibonacci
                     {
                         Console.Write(b + " x ");
 
-
                     }
 
                 }
 
-
                 int final = Fact(numUserAns);
-
-
                 Console.Write(" = " + Fact(i));
-
-
 
             }
 
-            //FINDING FILES
+
+            //EXCEPTIONS
+            int a = 100;
+            try
+            {
+                if (a > 20)
+                {
+                    TingException ex = new TingException("Number is greater than 100");
+                    //throwing it to catch
+                    throw ex;
+                }
+            }
+            catch (TingException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+
+            Console.WriteLine(a);
+
 
             Console.ReadLine();
         }
 
+        class TingException : Exception
+        {
+            public TingException(string message)
+            {
+
+            }
+        }
         static void Fibby(int a, int b, int count, int number)
         {
 
@@ -89,22 +110,7 @@ namespace Fibonacci
 
         }
 
-        static void giveBack(int num, int a)
-        {
-         
-            for (int i = 1; i < num + 1; i++)
-            {
-                if (i == num)
-                {
-                    Console.Write(i + " = " + a);
-                }
-                else
-                {
-                    Console.Write(i + " x ");
-                }
 
-            }
-        }
 
 
     }
